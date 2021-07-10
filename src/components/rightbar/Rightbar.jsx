@@ -9,6 +9,44 @@ export default function Rightbar() {
                 </div>
             </div>
             <img src="assets/ad.png" alt="" className="rightbarAd" />
+            <h4 className="rightbarTitle">Online friends</h4>
+            <ul className="rightbarFriendList">
+                <l1 className="rightbarFriend">
+                    <div className="rightbarProfileImgContainer">
+                        <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
+                    <span className="rightbarOnline"></span>
+                    </div>
+                    <span className="rightbarUsername">Oggy</span>
+                </l1>
+                <l1 className="rightbarFriend">
+                    <div className="rightbarProfileImgContainer">
+                        <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
+                    <span className="rightbarOnline"></span>
+                    </div>
+                    <span className="rightbarUsername">Oggy</span>
+                </l1>
+                <l1 className="rightbarFriend">
+                    <div className="rightbarProfileImgContainer">
+                        <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
+                    <span className="rightbarOnline"></span>
+                    </div>
+                    <span className="rightbarUsername">Oggy</span>
+                </l1>
+                <l1 className="rightbarFriend">
+                    <div className="rightbarProfileImgContainer">
+                        <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
+                    <span className="rightbarOnline"></span>
+                    </div>
+                    <span className="rightbarUsername">Oggy</span>
+                </l1>
+                <l1 className="rightbarFriend">
+                    <div className="rightbarProfileImgContainer">
+                        <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
+                    <span className="rightbarOnline"></span>
+                    </div>
+                    <span className="rightbarUsername">Oggy</span>
+                </l1>
+            </ul>
         </div>
     )
 }

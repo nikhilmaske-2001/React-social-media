@@ -1,6 +1,5 @@
 import "./post.css";
 import { MoreVert } from "@material-ui/icons";
-import { useState } from "react";
 
 export default function Post({ post }) {
   return (
@@ -27,9 +26,9 @@ export default function Post({ post }) {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src="/assets/like.png" alt="" />
-            <img className="likeIcon" src="/assets/heart.png" alt="" />
-            <span className="postLikeCounter">5 people like it</span>
+            <img className="likeIcon" src="assets/like.png" alt="" />
+            <img className="likeIcon" src="assets/heart.png" alt="" />
+            <span className="postLikeCounter">32 people like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText"> comments</span>

@@ -136,7 +136,6 @@ export default function Sidebar() {
                 <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
                 <span className="sidebarFriendName">Doremon</span>
             </li>
-            
         </ul>
       </div>
     </div>

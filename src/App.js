@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
         <Route path = "/login">
           <Login/>
         </Route>
-        <Route path = "/profile/:safak">
+        <Route path = "/profile/:username">
           <Profile/>
         </Route>
         <Route path = "/register">

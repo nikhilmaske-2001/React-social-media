@@ -11,8 +11,8 @@ export default function Feed() {
   // 2. We will need to use async and await but we can't user it in useEffect, so making another function inside it
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("posts/timeline/60e0705881fa36f09d5307d3");
-      console.log(res);
+      const res = await axios.get("/posts/timeline/60f2613898733b19e9649d79");
+      setPosts(res.data);
     };
     fetchPosts();
   }, []);
@@ -21,9 +21,9 @@ export default function Feed() {
     <div className="feed">
       <div className="feedWrapper">
         <Share />
-        {/* {Posts.map((p) => (
+        {posts.map((p) => (
           <Post key={p.id} post = {p}/>
-        ))} */}
+        ))}
       </div>
     </div>
   );

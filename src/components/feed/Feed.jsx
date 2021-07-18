@@ -11,7 +11,7 @@ export default function Feed() {
   // 2. We will need to use async and await but we can't user it in useEffect, so making another function inside it
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts/timeline/60f2613898733b19e9649d79");
+      const res = await axios.get("/posts/timeline/60f2639e2209851fe31d90c0");
       setPosts(res.data);
     };
     fetchPosts();

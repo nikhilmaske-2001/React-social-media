@@ -5,8 +5,8 @@ import axios from "axios";
 
 export default function Post({ post }) {
   // Like functionality
-  // take the like count from the dummy data
-  const [like, setLike] = useState(post.like);
+  // take the like count from the db
+  const [like, setLike] = useState(post.likes.length);
   // Initially put like = false (no like already)
   const [isLiked, setIsLiked] = useState(false);
 
@@ -52,7 +52,7 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={PF+post.photo} alt="" />
+          <img className="postImg" src={PF+post.img} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

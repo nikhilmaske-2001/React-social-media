@@ -1,7 +1,7 @@
 import "./post.css";
 import { MoreVert } from "@material-ui/icons";
-import {Users} from "../../dummyData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Post({ post }) {
   // Like functionality
@@ -17,9 +17,20 @@ export default function Post({ post }) {
     // flip the isliked
     setIsLiked(!isLiked);
   }
-
   // PUBLIC FOLDER
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  // Set the user so that we can use its data in this file
+  const [user, setUser] = useState({});
+
+  // Fetch the user data
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`users/${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div className="post">
@@ -28,10 +39,10 @@ export default function Post({ post }) {
           <div className="postTopLeft">
             <img
               className="postProfileImg"
-              src={Users.filter((u) => u.id === post?.userId)[0].profilePicture} alt=""
+              src={user.profilePicture || PF+"person/noAvatar.png"} alt=""
             />
             <span className="postUsername">
-              {Users.filter((u) => u.id === post?.userId)[0].username}
+              {user.username}
             </span>
             <span className="postDate">{post.date}</span>
           </div>

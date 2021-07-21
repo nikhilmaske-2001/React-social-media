@@ -6,28 +6,28 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  return(
-    // Using Router to switch between pages
+  const { user } = useContext(AuthContext);
+  return (
     <Router>
       <Switch>
-        {/* Using 'exact' to remove the confusion between '/' & 'xyz'. Removing it results into not working of other pages */}
-        <Route exact path = "/">
-          <Home/>
+        <Route exact path="/">
+          {user ? <Home /> : <Register />}
         </Route>
-        <Route path = "/login">
-          <Login/>
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        <Route path="/register">
+          {user ? <Redirect to="/" /> : <Register />}
         </Route>
-        <Route path = "/profile/:username">
-          <Profile/>
-        </Route>
-        <Route path = "/register">
-          <Register/>
+        <Route path="/profile/:username">
+          <Profile />
         </Route>
       </Switch>
-    </Router>  
+    </Router>
   );
 }
 

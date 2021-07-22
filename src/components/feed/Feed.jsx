@@ -5,7 +5,7 @@ import "./feed.css";
 import axios from "axios";
 
 export default function Feed() {
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {

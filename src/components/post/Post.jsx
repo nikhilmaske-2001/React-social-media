@@ -2,6 +2,7 @@ import "./post.css";
 import { MoreVert } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from "timeago.js";
 
 export default function Post({ post }) {
   // Like functionality
@@ -42,7 +43,7 @@ export default function Post({ post }) {
               alt=""
             />
             <span className="postUsername">{user.username}</span>
-            <span className="postDate">{post.date}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
             <MoreVert />

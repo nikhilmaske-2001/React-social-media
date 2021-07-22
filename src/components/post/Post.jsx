@@ -27,7 +27,7 @@ export default function Post({ post }) {
       setUser(res.data);
     };
     fetchUser();
-  });
+  }, [post.userId]);
 
   // PUBLIC FOLDER
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;

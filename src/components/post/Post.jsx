@@ -1,9 +1,10 @@
 import "./post.css";
 import { MoreVert } from "@material-ui/icons";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Post({ post }) {
   // Like functionality
@@ -13,12 +14,17 @@ export default function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
   // fetchUser
   const [user, setUser] = useState({});
+  const { user: currentUser } = useContext(AuthContext);
 
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [currentUser._id, post.likes]);
   // Onclick like button
   const likeHandler = () => {
-    // if already like then dislike, else like
+    try {
+      axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+    } catch (error) {}
     setLike(isLiked ? like - 1 : like + 1);
-    // flip the isliked
     setIsLiked(!isLiked);
   };
 
@@ -41,7 +47,11 @@ export default function Post({ post }) {
             <Link to={`profile/${user.username}`}>
               <img
                 className="postProfileImg"
-                src={user.profilePicture || PF + "person/noAvatar.png"}
+                src={
+                  user.profilePicture
+                    ? PF + user.profilePicture
+                    : PF + "person/noAvatar.png"
+                }
                 alt=""
               />
             </Link>
